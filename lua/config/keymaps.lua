@@ -102,3 +102,12 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+
+-- // config list method in class
+local telescope = require('telescope.builtin')
+keymap.set('n', '<leader>fn', function()
+  telescope.lsp_document_symbols({
+    symbols = { "function", "method" }
+  })
+end, { desc = "List Functions and Methods" })
