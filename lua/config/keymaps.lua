@@ -72,8 +72,9 @@ keymap.set("n", "<leader>hn", ":nohl<CR>")
 keymap.set("i", "jk", "<ESC>")
 keymap.set("i", "jj", "<ESC>i")
 
-keymap.set("n", "S", [[:s/old_text/new_text/gc<Left><Left>]], { noremap = true, silent = true })
-keymap.set("v", "S", [[:s/old_text/new_text/gc<Left><Left>]], { noremap = true, silent = true })
+keymap.set("n", "<leader>SS", [[:%s/old_text/new_text/gc<Left><Left>]], { noremap = true, silent = true })
+keymap.set("v", "<leader>SS", [[:<C-u>s/old_text/new_text/gc<Left><Left>]], { noremap = true, silent = true })
+
 
 -- buffer format for lsp
 keymap.set("n", "<leader>f", vim.lsp.buf.format)
