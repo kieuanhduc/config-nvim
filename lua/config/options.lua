@@ -37,6 +37,10 @@ vim.g.netrw_banner = 0
 
 vim.opt.clipboard = "unnamedplus"
 
+-- config so that text line breaks are aligned
+vim.opt.breakindent = true
+vim.opt.breakindentopt = "shift:4"
+
 
 -- Cấu hình format cho LSP
 -- Đảm bảo bạn đã cài đặt và cấu hình LSP cho Neovim
