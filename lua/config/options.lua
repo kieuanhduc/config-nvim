@@ -31,7 +31,7 @@ vim.opt.updatetime = 50
 
 -- vim.opt.autochdir = true
 
--- settings for netew 
+-- settings for netew
 vim.g.netrw_winsize = 15
 vim.g.netrw_banner = 0
 
@@ -41,12 +41,17 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
 vim.opt.breakindentopt = "shift:4"
 
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
 
 -- Cấu hình format cho LSP
 -- Đảm bảo bạn đã cài đặt và cấu hình LSP cho Neovim
 vim.lsp.handlers["textDocument/formatting"] = function(err, result, ctx, config)
-    if err ~= nil or result == nil then return end
-    local bufnr = ctx.bufnr
-    vim.lsp.util.apply_text_edits(result, bufnr, "utf-8")
-    vim.cmd("setlocal shiftwidth=4 softtabstop=4 expandtab=" .. (vim.opt.expandtab:get() and "true" or "false"))
+	if err ~= nil or result == nil then
+		return
+	end
+	local bufnr = ctx.bufnr
+	vim.lsp.util.apply_text_edits(result, bufnr, "utf-8")
+	vim.cmd("setlocal shiftwidth=4 softtabstop=4 expandtab=" .. (vim.opt.expandtab:get() and "true" or "false"))
 end
+
