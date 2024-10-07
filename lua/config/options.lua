@@ -46,12 +46,3 @@ vim.opt.ignorecase = true
 
 -- Cấu hình format cho LSP
 -- Đảm bảo bạn đã cài đặt và cấu hình LSP cho Neovim
-vim.lsp.handlers["textDocument/formatting"] = function(err, result, ctx, config)
-	if err ~= nil or result == nil then
-		return
-	end
-	local bufnr = ctx.bufnr
-	vim.lsp.util.apply_text_edits(result, bufnr, "utf-8")
-	vim.cmd("setlocal shiftwidth=4 softtabstop=4 expandtab=" .. (vim.opt.expandtab:get() and "true" or "false"))
-end
-
